@@ -17,7 +17,6 @@ output:
 options(htmltools.dir.version = FALSE)
 
 library(countdown)
-library(here)
 library(knitr)
 
 xaringanExtra::use_xaringan_extra(include = c("tile_view", "share_again", "editable"))
@@ -46,7 +45,7 @@ style_mono_accent(base_color = "#23395b",
 ```
 
 class: center, title-slide
-background-image: url("../images/flare_helix.png")
+background-image: url("images/flare_helix.png")
 background-size: 40%
 background-position: 50% 50%
 
@@ -67,7 +66,7 @@ background-position: 60% 70%
  
 ---
 class: inverse
-background-image: url("../images/data_provenance.png")
+background-image: url("images/data_provenance.png")
 background-position: 50% 80%
 background-size: 70%
 
@@ -80,7 +79,7 @@ background-size: 70%
 
 ---
 class: inverse
-background-image: url("../images/xcl_meltdown.jpg")
+background-image: url("images/xcl_meltdown.jpg")
 background-position: 50% 80%
 background-size: 70%
 
@@ -92,36 +91,100 @@ background-size: 70%
 .footnote[Source: [@standupmaths](https://twitter.com/standupmaths/status/1313055411285774336?s=21)]
 
 ---
-class: inverse
+background-image: url("images/academic_hat.png")
+background-position: 95% 10%
+background-size: 20%
 
 ## What We Teach in Academia
 
-### Write proposals
-### Collect Data
-### Get published
-### Cite and be Cited
+.pull-left[
 
-### *Everything else is learn as you go*
+ ### Write proposals
+ ### Collect Data
+ ### Get published
+ ### Cite and be Cited
+]
 
-.footnote[Source: R. McElreath 2020]
+--
+
+.pull_right[
+
+ <br>
+ <br>
+ <br>
+ ### *Everything else is learn as you go*
+
+]
+
+.pull-left[
+ 
+ .footnote[ *(slide based on great talk by [Richard McElreath](https://youtu.be/zwRdO9_GGhY))*]
+
+]
+
+
 ---
 
-## What We Actually Should Learn <br> (*but are rarely taught*)
+## People think Data Science is...
 
-### Organize and Manage Data
-### Data Tests
-### Reproducibility
+```{r, echo=FALSE, out.width='85%', fig.align='center'}
 
+knitr::include_graphics("https://media.wired.com/photos/5ca648a330f00e47fd82ae77/master/w_2560%2Cc_limit/Culture_Matrix_Code_corridor.jpg")
 
+```
+ 
 
 ---
 class: inverse
-background-image: url("../images/datasci_workflow_horst.png")
+
+## Actual Data Science is this...
+
+
+```{r echo=F, eval=TRUE, out.width='90%', fig.cap="Illustration by @allison_horst, from Hadley Wickham's talk 'The Joy of Functional Programming (for Data Science)'"}
+
+# these are all from Allison Horst: https://github.com/allisonhorst/stats-illustrations
+
+# CITE AS: "Artwork by @allison_horst"
+
+knitr::include_graphics(path="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/data_cowboy.png")
+
+```
+
+
+---
+class: inverse, center
+background-image: url("images/data-science-wrangle.png")
+background-position: 50% 90%
+background-size: 50%
+
+## What We Actually Should Learn <br> (*but are rarely taught*)
+
+--
+
+.pull-left[
+
+ ### Organize and Manage Data
+
+ ### Basic Data Wrangling
+]
+
+--
+
+.pull-right[
+
+ ### Testing
+
+ ### Reproducibility
+]
+
+---
+class: inverse
+background-image: url("images/datasci_workflow_horst.png")
 background-position: 50% 60%
 background-size: 90%
 
 
-### Reproducible Workflows: They exist
+### Reproducible Workflows exist!
 
 
 .footnote[Source: @allison_horst]
@@ -129,19 +192,28 @@ background-size: 90%
 
 ---
 
-# Data Types
+## Need better conceptual models 
 
-![](../images/data-types.svg)
+**Data Types**
+
+![](images/data-types.svg)
+
+.footnote[Source: [RStudio](https://github.com/rstudio/concept-maps)]
 
 
 ---
 class: inverse
 
-## Many ways to visualize
+## Many ways to visualize data...
 
-See this amazing 25 ways to visualize same data!
+### See 25 ways using same dataset!
 
- - https://flowingdata.com/2017/01/24/one-dataset-visualized-25-ways/
+ - **https://flowingdata.com/2017/01/24/one-dataset-visualized-25-ways/**
 
+
+---
+class: inverse
+
+## Next up is wrangling...
 
 

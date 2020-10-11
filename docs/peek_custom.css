@@ -1,0 +1,75 @@
+.title-slide h3:nth-of-type(1) {
+    color: red;
+}
+.title-slide h3:nth-of-type(2) {
+    color: gray;
+}
+.goldslide h1, .goldslide h2, .goldslide h3 {
+  color: #FFD700;
+  text-shadow: 10px 10px 20px black;
+}
+
+img, video, iframe {
+  max-width: 100%;
+}
+
+
+.font20 {
+  font-size: 20%;
+}
+
+.font30 {
+  font-size: 30%;
+}
+
+.font40 {
+  font-size: 40%;
+}
+
+.font40 {
+  font-size: 40%;
+}
+
+.font50 {
+  font-size: 50%;
+}
+
+.font60 {
+  font-size: 60%;
+}
+
+.font70 {
+  font-size: 70%;
+}
+
+.font80 {
+  font-size: 80%;
+}
+
+.font90 {
+  font-size: 90%;
+}
+
+.font100 {
+  font-size: 100%;
+}
+
+.font110 {
+  font-size: 110%;
+}
+
+.font120 {
+  font-size: 120%;
+}
+
+.font130 {
+  font-size: 130%;
+}
+
+.font140 {
+  font-size: 140%;
+}
+
+.font150 {
+  font-size: 150%;
+}
