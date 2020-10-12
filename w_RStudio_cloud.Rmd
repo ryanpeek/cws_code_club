@@ -54,13 +54,13 @@ To set everything up, we need to sign up and create a new account.
  
 ```{r, echo=F, out.width='100%'}
 
-knitr::include_graphics("images/rstudio_sign_up.png")
+knitr::include_graphics("slides/images/rstudio_sign_up.png")
 
 ```
  <br><br>
 ```{r, echo=F, out.height='70%'}
 
-knitr::include_graphics("images/rstudio_sign_in.png")
+knitr::include_graphics("slides/images/rstudio_sign_in.png")
 
 ```
 
@@ -74,7 +74,7 @@ Once you log in, you should look for a few things. On the left hand side, you sh
 
 ```{r, echo=F, out.width='100%'}
 
-knitr::include_graphics("images/rstudio_cloud_main_menu.png")
+knitr::include_graphics("slides/images/rstudio_cloud_main_menu.png")
 
 ```
 
@@ -84,7 +84,7 @@ On the right hand side, you should see a small chart showing your **Account Usag
 
 ```{r, echo=F, out.width='50%'}
 
-knitr::include_graphics("images/rstudio_cloud_right_hand_menu.png")
+knitr::include_graphics("slides/images/rstudio_cloud_right_hand_menu.png")
 
 ```
 
@@ -92,7 +92,7 @@ knitr::include_graphics("images/rstudio_cloud_right_hand_menu.png")
 ### **Getting Setup!**
 
 1. Click on **`New Project`**, and wait a second for things to initialize.
-2. Name your project **`CABW_R`**
+2. Name your project **`code_club`**
 3. Copy and install the packages we'll need. This can take a few minutes, so grab a cup of coffee or tea!
 
 ```

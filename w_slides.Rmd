@@ -3,7 +3,6 @@ title: "Slides"
 output: 
   bookdown::html_document2:
     code_fold: show
-    toc_depth: 2
     includes:
       in_header: assets/header.html
       after_body: assets/footer.html

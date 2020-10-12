@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Paths: Pell-Mell or Provenance?</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="R. Peek" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x9edd63d6bd74bcf9c42231b6a5cd91e","expires":14}</script>
+    <script src="libs/himalaya/himalaya.js"></script>
+    <script src="libs/js-cookie/js.cookie.js"></script>
+    <link href="libs/editable/editable.css" rel="stylesheet" />
+    <script src="libs/editable/editable.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="docs/peek_custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: center, title-slide
+background-image: url("images/flare_helix.png")
+background-size: 40%
+background-position: 50% 50%
+
+# Data Paths: Pell-Mell or Provenance?
+
+
+.footnote[*R. Peek, 2020-10-08*]
+
+---
+background-image: url("https://reproducibility.stanford.edu/wp-content/uploads/2015/07/email20monster-resized-6001.png")
+background-size: 70%
+background-position: 60% 70%
+
+
+## *pell-mell*
+
+ &gt; **(Adverb): confusedly; in an impetuous rush; with indiscriminate violence, energy, or eagerness**
+
+.footnote[ .orange[ [Source: Stanford Center for Reproducible Science](https://reproducibility.stanford.edu/) ]]
+
+ 
+---
+class: left
+background-image: url("images/data_provenance_workflow_words.png")
+background-position: 50% 90%
+background-size: 85%
+
+
+## *data provenance*
+
+ &gt; Details the origin, changes to, and details supporting the confidence or validity of data. Data provenance is important for tracking down errors within data and attributing them to sources
+
+---
+class: center
+background-image: url("images/xcl_meltdown.jpg")
+background-position: 50% 80%
+background-size: 60%
+
+## Managing Workflows (poorly)
+
+### .orange[Excel misuse drops &gt;16k COVID cases]
+
+&lt;br&gt;
+
+.footnote[Source: [@standupmaths](https://twitter.com/standupmaths/status/1313055411285774336?s=21)]
+
+
+---
+class: left
+background-image: url("images/ecology_failed_reproducibility.png")
+background-position: 100% 50%
+background-size: 50%
+
+## Reproducibility Failures
+
+.pull-left[
+
+### .orange[Only 27% of ecology articles made code available to reproduce results]
+]
+
+.pull-left[
+
+
+.footnote[Source: [Culina et al. 2020, PLOS](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000763)]
+
+]
+
+---
+class: inverse, left
+background-image: url("images/lancet_retraction.png")
+background-position: 90% 10%
+background-size: 60%
+
+### Retractions
+
+.footnote[https://twitter.com/TheLancet/status/1268613313702891523?s=20]
+
+---
+
+### Science {bad} behavior
+
+ &gt; "*The case against science is straightforward: much of the scientific literature, perhaps half, may simply be untrue….We aid and abet the worst behaviors. Our acquiescence to the impact factor fuels an unhealthy competition to win a place in a select few journals…The apparent endemicity of bad research behavior is alarming. In their quest for telling a compelling story, scientists too often sculpt data to fit their preferred theory of the world.*" &lt;br&gt; -Richard Horton (Editor of Lancet)
+ 
+ .footnote[Source: Lancet, DOI: 10.1016/S0140-6736(15)60696-1 ]
+
+---
+background-image: url("images/academic_hat.png")
+background-position: 95% 10%
+background-size: 20%
+
+## What We Teach in Academia
+
+.pull-left[
+
+ ### Write proposals
+ ### Collect Data
+ ### Get published
+ ### Cite and be Cited
+]
+
+--
+
+.pull_right[
+
+ &lt;br&gt;
+ &lt;br&gt;
+ &lt;br&gt;
+ ### *Everything else is learn as you go*
+
+]
+
+.pull-left[
+ 
+ .footnote[ *(slide based on great talk by [Richard McElreath](https://youtu.be/zwRdO9_GGhY))*]
+
+]
+
+
+---
+
+## People think Data Science is...
+
+&lt;img src="https://media.wired.com/photos/5ca648a330f00e47fd82ae77/master/w_2560%2Cc_limit/Culture_Matrix_Code_corridor.jpg" width="85%" style="display: block; margin: auto;" /&gt;
+ 
+
+---
+class: inverse
+
+## Actual Data Science is this...
+
+
+&lt;div class="figure"&gt;
+&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/data_cowboy.png" alt="Illustration by @allison_horst, from Hadley Wickham's talk 'The Joy of Functional Programming (for Data Science)'" width="90%" /&gt;
+&lt;p class="caption"&gt;Illustration by @allison_horst, from Hadley Wickham's talk 'The Joy of Functional Programming (for Data Science)'&lt;/p&gt;
+&lt;/div&gt;
+
+
+---
+class: inverse, center
+background-image: url("images/data-science-wrangle.png")
+background-position: 50% 90%
+background-size: 50%
+
+## What We Actually Should Learn &lt;br&gt; (*but are rarely taught*)
+
+--
+
+.pull-left[
+
+ ### Organize and Manage Data
+
+ ### Basic Data Wrangling
+]
+
+--
+
+.pull-right[
+
+ ### Testing
+
+ ### Reproducibility
+]
+
+---
+class: inverse
+background-image: url("images/datasci_workflow_horst.png")
+background-position: 50% 60%
+background-size: 90%
+
+
+### Reproducible Workflows exist!
+
+
+.footnote[Source: @allison_horst]
+
+
+---
+
+## Need better conceptual models 
+
+**Data Types**
+
+![](images/data-types.svg)
+
+.footnote[Source: [RStudio](https://github.com/rstudio/concept-maps)]
+
+
+---
+class: inverse
+
+## Many ways to visualize data...
+
+### See 25 ways using same dataset!
+
+ - **https://flowingdata.com/2017/01/24/one-dataset-visualized-25-ways/**
+
+
+---
+class: inverse
+
+## Next up is wrangling...
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

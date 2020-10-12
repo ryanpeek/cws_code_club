@@ -131,7 +131,7 @@ In fact, we should all make our default setting a blank slate. We should only be
 
 ```{r tidyplotgraphic, eval=TRUE, out.width='100%', fig.cap='(ref:workspaceDef)'}
 
-knitr::include_graphics(path="images/rstudio-workspace-default.png")
+knitr::include_graphics(path="slides/images/rstudio-workspace-default.png")
 
 
 ``` 
@@ -155,6 +155,17 @@ This is really important and will make life easier for everyone in the long run.
  - File names should be machine readable (i.e., no spaces)
  - Human readable (`01_import_clean_data.R`)
  - Makes default ordering easy (i.e., dates are always `YYYY-MM-DD`)
+
+<br>
+
+Don't be in this situation:
+
+```{r filenameMadness, echo=F, eval=T}
+
+knitr::include_graphics("https://gge-ucd.github.io/R-DAVIS/img/phd052810s.gif")
+
+```
+
 
 <br>
 

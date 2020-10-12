@@ -45,7 +45,7 @@ Let's get familiar with RStudio before we go on.
 If you haven't done so already, download and install RStudio from the link above (version 1.3.1073).  After it's installed, find the RStudio shortcut and fire it up.  You should see something like this:
 
 ```{r out.width = "100%", echo=F, fig.cap = '*The RStudio window.*'}
-knitr::include_graphics(here::here("images", "rstudio.png"))
+knitr::include_graphics(here::here( "slides", "images", "rstudio.png"))
 ```
 
 There are four panes in RStudio (starting from the bottom left and moving clockwise): 
@@ -211,7 +211,7 @@ In addition to help from within R itself, CRAN and the R-Project have many resou
 There are also a number of platforms created to support communities using R and RStudio including [RStudio Community](https://community.rstudio.com/latest), [RLadies](https://rladies.org/) and [RStudioEDU](https://twitter.com/RStudioEDU). Many of our workshop helpers today are members of RLadies! Following #rstats on Twitter is also an excellent way to stay informed of RStudio updates and new package developments.
 
 ```{r out.width = "100%", echo=F, fig.cap = '*Illustration by @allison_horst.*'}
-knitr::include_graphics(here::here("images", "friends.png"))
+knitr::include_graphics(here::here("slides", "images", "friends.png"))
 ```
 
 ### Google and StackOverflow
