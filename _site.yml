@@ -1,0 +1,44 @@
+name: "cws_code_club"
+output_dir: docs
+output:
+  bookdown::html_document2:
+    theme: cosmo
+    number_sections: false
+    highlight: textmate
+    toc: true
+    toc_float:
+        collapsed: true
+    css: assets/styles.css
+    lib_dir: site_libs
+    self_contained: no
+    include:
+        in_header: assets/header.html
+        after_body: assets/footer.html
+navbar:
+  title: "CWS deBugging Buddies"
+  type: inverse
+  left:
+  - text:
+    icon: fa-home fa-1.5x
+    href: w_index.html
+  - text: "Home"
+    icon: ion-hammer
+    menu:
+    - text: "Slides"
+      icon: fa-laptop
+      href: w_slides.html
+    - text: "Setting up RStudio Cloud"
+      icon: fa-cloud
+      href: w_RStudio_cloud.html
+    - text: "Getting Started"
+      icon: fa-map-signs
+      href: w_setup_R.html
+    - text: "Project Management"
+      icon: fa-sitemap
+      href: w_project_management.html
+  right:
+  - text: "Resources"
+    icon: fa-list
+    href: w_resources.html
+  - icon: fa-github fa-lg
+    href: https://github.com/ryanpeek/cws_code_club

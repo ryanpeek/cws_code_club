@@ -1,0 +1,36 @@
+---
+title: "Slides"
+output: 
+  bookdown::html_document2:
+    code_fold: show
+    toc_depth: 2
+    includes:
+      in_header: assets/header.html
+      after_body: assets/footer.html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<style>
+  .title{
+    display: none;
+  }
+</style>
+
+<br>
+<br>
+
+## Slides
+
+Slide presentations from deBugging Buddies can be found below!
+
+
+### Data Provenance
+
+```{r, echo=F, out.width='100%'}
+
+knitr::include_url("slides/slides_data.html")
+
+```

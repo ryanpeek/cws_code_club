@@ -1,6 +1,6 @@
 ---
 title: "Data Paths: Pell-Mell or Provenance?"
-author: 
+author: R. Peek
 date: 
 output:
   xaringan::moon_reader:
@@ -51,13 +51,16 @@ background-position: 50% 50%
 
 # Data Paths: Pell-Mell or Provenance?
 
+
+.footnote[*R. Peek, 2020-10-08*]
+
 ---
 background-image: url("https://reproducibility.stanford.edu/wp-content/uploads/2015/07/email20monster-resized-6001.png")
 background-size: 70%
 background-position: 60% 70%
 
 
-## pell-mell
+## *pell-mell*
 
  > **(Adverb): confusedly; in an impetuous rush; with indiscriminate violence, energy, or eagerness**
 
@@ -65,30 +68,68 @@ background-position: 60% 70%
 
  
 ---
-class: inverse
-background-image: url("images/data_provenance.png")
-background-position: 50% 80%
-background-size: 70%
+class: left
+background-image: url("images/data_provenance_workflow_words.png")
+background-position: 50% 90%
+background-size: 85%
 
 
-# Data Provenance
+## *data provenance*
 
  > Details the origin, changes to, and details supporting the confidence or validity of data. Data provenance is important for tracking down errors within data and attributing them to sources
 
-
-
 ---
-class: inverse
+class: center
 background-image: url("images/xcl_meltdown.jpg")
 background-position: 50% 80%
-background-size: 70%
+background-size: 60%
 
 ## Managing Workflows (poorly)
 
 ### .orange[Excel misuse drops >16k COVID cases]
 
+<br>
 
 .footnote[Source: [@standupmaths](https://twitter.com/standupmaths/status/1313055411285774336?s=21)]
+
+
+---
+class: left
+background-image: url("images/ecology_failed_reproducibility.png")
+background-position: 100% 50%
+background-size: 50%
+
+## Reproducibility Failures
+
+.pull-left[
+
+### .orange[Only 27% of ecology articles made code available to reproduce results]
+]
+
+.pull-left[
+
+
+.footnote[Source: [Culina et al. 2020, PLOS](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000763)]
+
+]
+
+---
+class: inverse, left
+background-image: url("images/lancet_retraction.png")
+background-position: 90% 10%
+background-size: 60%
+
+### Retractions
+
+.footnote[https://twitter.com/TheLancet/status/1268613313702891523?s=20]
+
+---
+
+### Science {bad} behavior
+
+ > "*The case against science is straightforward: much of the scientific literature, perhaps half, may simply be untrue….We aid and abet the worst behaviors. Our acquiescence to the impact factor fuels an unhealthy competition to win a place in a select few journals…The apparent endemicity of bad research behavior is alarming. In their quest for telling a compelling story, scientists too often sculpt data to fit their preferred theory of the world.*" <br> -Richard Horton (Editor of Lancet)
+ 
+ .footnote[Source: Lancet, DOI: 10.1016/S0140-6736(15)60696-1 ]
 
 ---
 background-image: url("images/academic_hat.png")
@@ -215,5 +256,4 @@ class: inverse
 class: inverse
 
 ## Next up is wrangling...
-
 
