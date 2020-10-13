@@ -17,6 +17,8 @@ library(dplyr)
 
 ```
 
+<br>
+
 ## Goals and Motivation
 
 [R](https://www.r-project.org/) is a language for statistical computing as well as a general purpose programming language. Increasingly, it has become one of the primary languages used in data science and for data analysis across many of the natural sciences.
@@ -28,11 +30,15 @@ Hopefully this page will help answer these questions:
 * What is R/RStudio and why should I use it?
 * Where can I find additional learning and help resources? 
 
-### Why should I invest time in R?
+<br>
+
+### **Why should I invest time in R?**
 
 There are many programming languages available and each has it's specific benefits. R was originally created as a statistical programming language but now it is largely viewed as a 'data science' language.
 
 R is also an open-source programming language - not only is it free, but this means anybody can contribute to it's development.
+
+<br>
 
 ## R/RStudio fundamentals
 
@@ -54,6 +60,8 @@ There are four panes in RStudio (starting from the bottom left and moving clockw
 * Source
 * Environment, History, etc.
 * Files, Plots, etc.
+
+<br>
 
 ### Executing code in RStudio
 
@@ -127,10 +135,19 @@ print("Error: object 'habitatt' not found")
 ```
 
 
-This line of code will give you an error, because you must type your variable names exactly as they appear. Please keep in mind that R is also **case-sensitive**.
+This line of code will give you an error, because you must type your variable names exactly as they appear. Please keep in mind that R is also **case-sensitive**. Also, be aware that "de-bugging" (checking your code for errors or fixing your code so it runs) gets easier with time.
+
+(ref:AHRemoteR) *Artwork by @allison_horst*
+
+```{r remoteLearning, eval=TRUE, echo=FALSE, out.width='60%', fig.cap='(ref:AHRemoteR)'}
+
+knitr::include_graphics(path = "https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/other-stats-artwork/debugging.jpg")
+
+```
+
+<br>
 
 Try to call the variable once more in the *Console* using the correct spelling:
-
 
 ```{r}
 
@@ -143,15 +160,21 @@ habitat
 
 In this same pane in the RStudio window is the *History* tab, which will record all the code you've run, and the *Connections* tab will show connections to other databases, etc.
 
-### Installing packages
+<br>
+
+### **Installing packages**
 
 Immediately below the *Environment* is the third section of RStudio, where all of your *Packages* are stored. The base install of R is quite powerful, but you will soon have a need to go beyond this. Packages provide this ability. They are a standardized way of extending R with new methods, techniques, and programming functionality.
 
-### CRAN
+<br>
+
+### **CRAN**
 
 One of the reasons for R's popularity is CRAN, [The Comprehensive R Archive Network](http://cran.r-project.org/).  This is where you download R and also where you can gain access to additional packages.  All of the packages we'll be using during this tutorial will be downloaded from CRAN.  As of `r format(Sys.time(), "%Y-%m-%d")`, there are `r nrow(available.packages())` on CRAN! 
 
-### Installing tidyverse
+<br>
+
+### **Installing {`tidyverse`}**
 
 When a package gets installed, that means the source code is downloaded and put into your library. Let's give it a shot using the [tidyverse](https://tidyverse.tidyverse.org/index.html), a set of packages assembled for data tidying and visualization purposes.
 
@@ -171,17 +194,23 @@ The remaining tabs in this pane allow you to see the *Files* that are associated
 
 Great job! You've opened up RStudio, learned about some basic functionalities, and now you're ready to get going on your first R project!
 
+<br>
+
 ***
+
+<br>
 
 Below we have included some excellent resources for R learning, troubleshooting, and communities.
 
 ## Additional R Resources
 
-### Getting Help
+### **Getting Help**
 
 Being able to find help and interpret that help is probably one of the most important skills for learning a new language.  R is no different. Help on functions and packages can be accessed directly from R, can be found on CRAN and other official R resources, searched on Google, found on StackOverflow, or from any number of fantastic online resources.
 
-### Help from the console
+<br>
+
+### **Help from the console**
 
 Getting help from the console is straightforward and can be done numerous ways.
 
@@ -199,7 +228,9 @@ apropos("print") # Returns all available functions with "print" in the name
 ??print # shortcut, but also searches demos and vignettes in a formatted page
 ```
 
-### R Resources
+<br>
+
+### **R Resources**
 
 In addition to help from within R itself, CRAN and the R-Project have many resources available for support.  Two of the most notable are the mailing lists and the [task views](http://cran.r-project.org/web/views/).
 
@@ -208,13 +239,15 @@ In addition to help from within R itself, CRAN and the R-Project have many resou
 - [Environmetrics Task View](http://cran.r-project.org/web/views/Environmetrics.html): Task views are great in that they provide an annotated list of packages relevant to a particular field. This one is maintained by Gavin Simpson and has great info on packages relevant to much of the work at EPA.
 - [Spatial Analysis Task View](http://cran.r-project.org/web/views/Spatial.html): One that lists all the relevant packages for spatial analysis, GIS, and Remote Sensing in R. 
 
-There are also a number of platforms created to support communities using R and RStudio including [RStudio Community](https://community.rstudio.com/latest), [RLadies](https://rladies.org/) and [RStudioEDU](https://twitter.com/RStudioEDU). Many of our workshop helpers today are members of RLadies! Following #rstats on Twitter is also an excellent way to stay informed of RStudio updates and new package developments.
+There are also a number of platforms created to support communities using R and RStudio including [RStudio Community](https://community.rstudio.com/latest), [RLadies](https://rladies.org/) and [RStudioEDU](https://twitter.com/RStudioEDU). Following #rstats on Twitter is also an excellent way to stay informed of RStudio updates and new package developments.
 
 ```{r out.width = "100%", echo=F, fig.cap = '*Illustration by @allison_horst.*'}
 knitr::include_graphics(here::here("slides", "images", "friends.png"))
 ```
 
-### Google and StackOverflow
+<br>
+
+### **Google and StackOverflow**
 
 While the resources already mentioned are useful, often the quickest way is to just turn to Google. Google works great if you search for a given package or function name. You can also type in the error you are experiencing verbatim - chances are, someone before you has encountered the *exact* same problem.
 
@@ -225,11 +258,13 @@ Blind googling can require a bit of strategy to get the info you want.  Some poi
 * Take note of the number of hits and date of a web page
 * When in doubt, search with the exact error message (see here for [details](https://cran.r-project.org/doc/manuals/R-lang.html#Exception-handling) about warnings vs errors)
 
-One specific resource that I use quite a bit is [StackOverflow with the 'r' tag](http://stackoverflow.com/questions/tagged/r).  StackOverflow is a discussion forum for all things related to programming.  You can then use this tag and the search functions in StackOverflow and find answers to almost anything you can think of. However, these forums are also very strict and I typically use them to find answers not to ask questions.
+One specific resource that you can use is [StackOverflow with the 'r' tag](http://stackoverflow.com/questions/tagged/r).  StackOverflow is a discussion forum for all things related to programming.  You can then use this tag and the search functions in StackOverflow and find answers to almost anything you can think of. However, these forums are also very strict and **I typically use them to find answers not to ask questions**.
 
-### Other Resources
+<br>
 
-Below are just a few more resources I like:
+### **Other Resources**
+
+Below are just a few more resources:
 
 - [Stat 545](https://stat545.com/): Course materials for Jenny Bryan's introduction to data science course developed at the University of British Columbia.
 - [Data Carpentry: R for Data Analysis and Visualization of Ecological Data](http://www.datacarpentry.org/R-ecology-lesson/): Carpentry lesson for folks using ecological data in R.

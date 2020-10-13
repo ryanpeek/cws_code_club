@@ -448,6 +448,7 @@ div.tocify {
 </div>
 
 
+<p><br></p>
 <div id="goals-and-motivation" class="section level2">
 <h2>Goals and Motivation</h2>
 <p><a href="https://www.r-project.org/">R</a> is a language for statistical computing as well as a general purpose programming language. Increasingly, it has become one of the primary languages used in data science and for data analysis across many of the natural sciences.</p>
@@ -457,10 +458,12 @@ div.tocify {
 <li>What is R/RStudio and why should I use it?</li>
 <li>Where can I find additional learning and help resources?</li>
 </ul>
+<p><br></p>
 <div id="why-should-i-invest-time-in-r" class="section level3">
-<h3>Why should I invest time in R?</h3>
+<h3><strong>Why should I invest time in R?</strong></h3>
 <p>There are many programming languages available and each has it’s specific benefits. R was originally created as a statistical programming language but now it is largely viewed as a ‘data science’ language.</p>
 <p>R is also an open-source programming language - not only is it free, but this means anybody can contribute to it’s development.</p>
+<p><br></p>
 </div>
 </div>
 <div id="rrstudio-fundamentals" class="section level2">
@@ -483,6 +486,7 @@ Figure 1: <em>The RStudio window.</em>
 <li>Environment, History, etc.</li>
 <li>Files, Plots, etc.</li>
 </ul>
+<p><br></p>
 </div>
 <div id="executing-code-in-rstudio" class="section level3">
 <h3>Executing code in RStudio</h3>
@@ -507,23 +511,34 @@ Figure 1: <em>The RStudio window.</em>
 <p><code>habitatt</code></p>
 <pre class="r"><code>print(&quot;Error: object &#39;habitatt&#39; not found&quot;)</code></pre>
 <pre><code>## [1] &quot;Error: object &#39;habitatt&#39; not found&quot;</code></pre>
-<p>This line of code will give you an error, because you must type your variable names exactly as they appear. Please keep in mind that R is also <strong>case-sensitive</strong>.</p>
+<p>This line of code will give you an error, because you must type your variable names exactly as they appear. Please keep in mind that R is also <strong>case-sensitive</strong>. Also, be aware that “de-bugging” (checking your code for errors or fixing your code so it runs) gets easier with time.</p>
+
+<div class="figure"><span id="fig:remoteLearning"></span>
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/other-stats-artwork/debugging.jpg" alt="Artwork by @allison_horst" width="60%" />
+<p class="caption">
+Figure 2: <em>Artwork by <span class="citation">@allison_horst</span></em>
+</p>
+</div>
+<p><br></p>
 <p>Try to call the variable once more in the <em>Console</em> using the correct spelling:</p>
 <pre class="r"><code>habitat</code></pre>
 <pre><code>## [1] 12</code></pre>
 <p><strong>Please note:</strong> Clicking on the broom button in the <em>Environment</em> will permanently clear out your existing variables. Only do this if you are certain you want to remove/reset all saved variables and datasets.</p>
 <p>In this same pane in the RStudio window is the <em>History</em> tab, which will record all the code you’ve run, and the <em>Connections</em> tab will show connections to other databases, etc.</p>
+<p><br></p>
 </div>
 <div id="installing-packages" class="section level3">
-<h3>Installing packages</h3>
+<h3><strong>Installing packages</strong></h3>
 <p>Immediately below the <em>Environment</em> is the third section of RStudio, where all of your <em>Packages</em> are stored. The base install of R is quite powerful, but you will soon have a need to go beyond this. Packages provide this ability. They are a standardized way of extending R with new methods, techniques, and programming functionality.</p>
+<p><br></p>
 </div>
 <div id="cran" class="section level3">
-<h3>CRAN</h3>
-<p>One of the reasons for R’s popularity is CRAN, <a href="http://cran.r-project.org/">The Comprehensive R Archive Network</a>. This is where you download R and also where you can gain access to additional packages. All of the packages we’ll be using during this tutorial will be downloaded from CRAN. As of 2020-10-12, there are 16379 on CRAN!</p>
+<h3><strong>CRAN</strong></h3>
+<p>One of the reasons for R’s popularity is CRAN, <a href="http://cran.r-project.org/">The Comprehensive R Archive Network</a>. This is where you download R and also where you can gain access to additional packages. All of the packages we’ll be using during this tutorial will be downloaded from CRAN. As of 2020-10-13, there are 16398 on CRAN!</p>
+<p><br></p>
 </div>
 <div id="installing-tidyverse" class="section level3">
-<h3>Installing tidyverse</h3>
+<h3><strong>Installing {<code>tidyverse</code>}</strong></h3>
 <p>When a package gets installed, that means the source code is downloaded and put into your library. Let’s give it a shot using the <a href="https://tidyverse.tidyverse.org/index.html">tidyverse</a>, a set of packages assembled for data tidying and visualization purposes.</p>
 <p>We’re going to use our very first function - <code>install.packages()</code> - to install this package. Type the following into your <em>Console</em> and press <code>enter</code>:</p>
 <p><code>install.packages("tidyverse")</code></p>
@@ -533,18 +548,21 @@ Figure 1: <em>The RStudio window.</em>
 <p>Now your package is loaded, and ready to use. You can be certain your package is attached if there is a check mark next to the package name in the <em>Packages</em> tab.</p>
 <p>The remaining tabs in this pane allow you to see the <em>Files</em> that are associated with your code, the <em>Plots</em> you’ve created, <em>Help</em> documents for when you get stuck, and view additional HTML content you might create with the <em>Viewer</em> tab.</p>
 <p>Great job! You’ve opened up RStudio, learned about some basic functionalities, and now you’re ready to get going on your first R project!</p>
+<p><br></p>
 <hr />
+<p><br></p>
 <p>Below we have included some excellent resources for R learning, troubleshooting, and communities.</p>
 </div>
 </div>
 <div id="additional-r-resources" class="section level2">
 <h2>Additional R Resources</h2>
 <div id="getting-help" class="section level3">
-<h3>Getting Help</h3>
+<h3><strong>Getting Help</strong></h3>
 <p>Being able to find help and interpret that help is probably one of the most important skills for learning a new language. R is no different. Help on functions and packages can be accessed directly from R, can be found on CRAN and other official R resources, searched on Google, found on StackOverflow, or from any number of fantastic online resources.</p>
+<p><br></p>
 </div>
 <div id="help-from-the-console" class="section level3">
-<h3>Help from the console</h3>
+<h3><strong>Help from the console</strong></h3>
 <p>Getting help from the console is straightforward and can be done numerous ways.</p>
 <pre class="r"><code># Using the help command/shortcut
 # When you know the name of a function
@@ -557,9 +575,10 @@ help(package = &quot;dplyr&quot;) # Help on the package `dplyr`
 # Don&#39;t know the exact name or just part of it
 apropos(&quot;print&quot;) # Returns all available functions with &quot;print&quot; in the name
 ??print # shortcut, but also searches demos and vignettes in a formatted page</code></pre>
+<p><br></p>
 </div>
 <div id="r-resources" class="section level3">
-<h3>R Resources</h3>
+<h3><strong>R Resources</strong></h3>
 <p>In addition to help from within R itself, CRAN and the R-Project have many resources available for support. Two of the most notable are the mailing lists and the <a href="http://cran.r-project.org/web/views/">task views</a>.</p>
 <ul>
 <li><a href="https://stat.ethz.ch/mailman/listinfo/r-help">R Help Mailing List</a>: The main mailing list for R help.</li>
@@ -567,16 +586,17 @@ apropos(&quot;print&quot;) # Returns all available functions with &quot;print&qu
 <li><a href="http://cran.r-project.org/web/views/Environmetrics.html">Environmetrics Task View</a>: Task views are great in that they provide an annotated list of packages relevant to a particular field. This one is maintained by Gavin Simpson and has great info on packages relevant to much of the work at EPA.</li>
 <li><a href="http://cran.r-project.org/web/views/Spatial.html">Spatial Analysis Task View</a>: One that lists all the relevant packages for spatial analysis, GIS, and Remote Sensing in R.</li>
 </ul>
-<p>There are also a number of platforms created to support communities using R and RStudio including <a href="https://community.rstudio.com/latest">RStudio Community</a>, <a href="https://rladies.org/">RLadies</a> and <a href="https://twitter.com/RStudioEDU">RStudioEDU</a>. Many of our workshop helpers today are members of RLadies! Following #rstats on Twitter is also an excellent way to stay informed of RStudio updates and new package developments.</p>
+<p>There are also a number of platforms created to support communities using R and RStudio including <a href="https://community.rstudio.com/latest">RStudio Community</a>, <a href="https://rladies.org/">RLadies</a> and <a href="https://twitter.com/RStudioEDU">RStudioEDU</a>. Following #rstats on Twitter is also an excellent way to stay informed of RStudio updates and new package developments.</p>
 <div class="figure"><span id="fig:unnamed-chunk-10"></span>
 <img src="slides/images/friends.png" alt="*Illustration by @allison_horst.*" width="100%" />
 <p class="caption">
-Figure 2: <em>Illustration by <span class="citation">@allison_horst</span>.</em>
+Figure 3: <em>Illustration by <span class="citation">@allison_horst</span>.</em>
 </p>
 </div>
+<p><br></p>
 </div>
 <div id="google-and-stackoverflow" class="section level3">
-<h3>Google and StackOverflow</h3>
+<h3><strong>Google and StackOverflow</strong></h3>
 <p>While the resources already mentioned are useful, often the quickest way is to just turn to Google. Google works great if you search for a given package or function name. You can also type in the error you are experiencing verbatim - chances are, someone before you has encountered the <em>exact</em> same problem.</p>
 <p>Blind googling can require a bit of strategy to get the info you want. Some pointers:</p>
 <ul>
@@ -585,11 +605,12 @@ Figure 2: <em>Illustration by <span class="citation">@allison_horst</span>.</em>
 <li>Take note of the number of hits and date of a web page</li>
 <li>When in doubt, search with the exact error message (see here for <a href="https://cran.r-project.org/doc/manuals/R-lang.html#Exception-handling">details</a> about warnings vs errors)</li>
 </ul>
-<p>One specific resource that I use quite a bit is <a href="http://stackoverflow.com/questions/tagged/r">StackOverflow with the ‘r’ tag</a>. StackOverflow is a discussion forum for all things related to programming. You can then use this tag and the search functions in StackOverflow and find answers to almost anything you can think of. However, these forums are also very strict and I typically use them to find answers not to ask questions.</p>
+<p>One specific resource that you can use is <a href="http://stackoverflow.com/questions/tagged/r">StackOverflow with the ‘r’ tag</a>. StackOverflow is a discussion forum for all things related to programming. You can then use this tag and the search functions in StackOverflow and find answers to almost anything you can think of. However, these forums are also very strict and <strong>I typically use them to find answers not to ask questions</strong>.</p>
+<p><br></p>
 </div>
 <div id="other-resources" class="section level3">
-<h3>Other Resources</h3>
-<p>Below are just a few more resources I like:</p>
+<h3><strong>Other Resources</strong></h3>
+<p>Below are just a few more resources:</p>
 <ul>
 <li><a href="https://stat545.com/">Stat 545</a>: Course materials for Jenny Bryan’s introduction to data science course developed at the University of British Columbia.</li>
 <li><a href="http://www.datacarpentry.org/R-ecology-lesson/">Data Carpentry: R for Data Analysis and Visualization of Ecological Data</a>: Carpentry lesson for folks using ecological data in R.</li>

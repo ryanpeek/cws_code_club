@@ -32,31 +32,39 @@ knitr::include_graphics(path = "https://raw.githubusercontent.com/allisonhorst/s
 
 :::obj
 
-**Course Objectives**
+**What is Code Club?**
 
-What we want you to be able to do:
+A chance to learn some basic data workflows (here in R), as well as:
 
-* Use R to import and organize bioassessment data 
+* project management and data organization
 
-* Create plots using R packages to explore basic data trends
+* principles of tidy data and data wrangling
 
-* Create maps in R to explore/report spatial patterns 
+* a chance to learn from each other!
 
 :::
 
 <br>
 
-[R](https://www.r-project.org/) is a language for statistical computing as well as a general purpose programming language. Increasingly, it has become one of the primary languages used in data science for data analysis, modeling, and visualization. This workshop will provide attendees with a starting point for continued learning and use of R. We will cover a variety of commonly used file types (i.e., `.csv`, `.xlsx`, `.shp`) used in analysis, as well as provide resources for more foundational learning.
+
+The concept of Code Club or De-Bugging Buddies is based on [this paper](https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1008119&type=printable) by Hagan et al. (2020). The main idea is that we usually spend time presenting results or working on manuscripts and presentations, but not much time talking about how we do things with data (analysis, cleaning, storing, sharing).
+
+The key rules are:
+
+ - Be respectful
+ - Be open to learning new methods
+ - Learn and experiment!
+ - Aim to reach all levels
+ - Participate
+
 
 <br>
 
 
 
-## Software requirements
+## Software requirements for R
 
-Please setup a computer/laptop with the latest version of RStudio and R installed.  Download the compressed [data](https://github.com/ucd-cws/CABW2020_R_training/raw/main/data/datazip.zip) folder and make sure it is accessible on your computer.  The [setup instructions](01_setup_R.html) will guide you through the rest of the process.  Take note of the required R packages that you must also download and install.  Please contact the instructors with any questions or issues related to setup.  
-
-If for whatever reason you can't get RStudio installed with the right packages, we can help you set up a free [RStudio Cloud](https://rstudio.cloud/) account which you can use for the workshop. 
+Please setup a computer/laptop with the latest version of RStudio and R installed. [Setup instructions](w_setup_R.html) will guide you through the rest of the process.  If for whatever reason you can't get RStudio installed with the right packages, check out and set up a free [RStudio Cloud](https://rstudio.cloud/) account which you can use freely, up to 15 hours a month. Instructions [here](w_RStudio_cloud.html).
 
 <br>
 
