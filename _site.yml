@@ -1,5 +1,6 @@
 name: "cws_code_club"
 output_dir: docs
+exclude: ["data"]
 output:
   bookdown::html_document2:
     theme: cosmo
