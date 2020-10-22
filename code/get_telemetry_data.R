@@ -46,7 +46,7 @@ dinga_datetimes <- dinga_dates %>%
   select(-c(datetime2, datetime1, HMS, date2))
 
 
-# Make a Quick Map --------------------------------------------------------
+# Make a Mapview Map --------------------------------------------------------
 
 # use sf to make a quick map of data
 dinga_sf <- dinga_datetimes %>%
@@ -57,6 +57,10 @@ dinga_sf <- dinga_datetimes %>%
 
 plot(dinga_sf$geometry)
 
+
 library(mapview)
 mapviewOptions(fgb = FALSE)
 mapview(dinga_sf, zcol="days")
+
+
+
