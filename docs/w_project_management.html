@@ -13,7 +13,6 @@
 
 <title>Project Management: Let’s Get Organized</title>
 
-<script src="site_libs/header-attrs-2.4/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -27,6 +26,8 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="site_libs/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
 <link href="site_libs/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="site_libs_extra/academicons-1.8.0/css/academicons.css"/>
@@ -38,7 +39,7 @@
   div.column{display: inline-block; vertical-align: top; width: 50%;}
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
-      </style>
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -410,13 +411,6 @@ div.tocify {
     Slides
   </a>
 </li>
-<li>
-  <a href="https://www.dl.dropboxusercontent.com/s/2vxefqv5gkr6egt/r_live_code.R?dl=0">
-    <span class="fa fa-space-shuttle fa-1x"></span>
-     
-    LiveCode
-  </a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -527,9 +521,7 @@ Figure 1: <em>Illustration by <span class="citation">@allison_horst</span>.</em>
 <p>Within the R environment, something that makes project management and organization much easier is the use of RStudio Projects (<code>.Rproj</code>). Within RStudio, this is baked in and pretty easy to do. One of the nicest parts of using <strong>RProjects</strong> is that they automatically set the working directory to the folder containing the <code>.RProj</code> file. You can make any existing folder an RProject folder, or make a new one!</p>
 <p><br></p>
 <details>
-<summary class="extra-practice-title">
-Extra Practice
-</summary>
+<summary class="extra-practice-title">Extra Practice</summary>
 <div class="extra-practice-body">
 Avoid using <code>setwd()</code>! More reasons and rational <a href="https://rstats.wtf/project-oriented-workflow.html#setwd">linked here</a>
 </div>
@@ -636,7 +628,7 @@ Figure 3: <em>An example project folder structure</em>
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
