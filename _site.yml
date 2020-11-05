@@ -37,6 +37,9 @@ navbar:
   - text: "Slides"
     icon: fa-laptop
     href: w_slides.html
+  - text: "LiveCode"
+    icon: fa-code
+    href: https://www.dl.dropboxusercontent.com/s/2vxefqv5gkr6egt/r_live_code.R?dl=0
 
   right:
   - text: "Resources"
