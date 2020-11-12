@@ -364,90 +364,6 @@ penguins %>%
 ]
 
 ---
-class: inverse
-
-# Your turn `r (yt_counter <- yt_counter + 1)`
-
-```{r echo=FALSE}
-countdown(minutes = 5)
-```
-<!--
-1. Import the file [`DC_2020_Zoop.csv`](https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/data/DC_2020_Zoop.csv) (use best practices of a project-oriented workflow). Save it to an object called `ps_data`. This time we'll save it as a `tibble` (which I've done for you).
-
-1. Filter rows for cases in the "No Label" `condition` and arrange the resulting observations by descending order of `age`.
-
-1. Select observations from the “No Label” condition for kids 3 years old or younger. 
-
-1. Select observations for kids between the ages of 3 and 4. Save the result to a new object called `ps_filtered`. (For an extra challenge, look up the documentation for `between()` and use this function instead of comparison operators). 
-
----
-class: solution
-
-# Solution
-
-```{r echo=FALSE, message=FALSE, eval=F}
-ps_data <- rio::import(here::here("static/slides/data/pragmatic_scales_data.csv")) %>% 
-  as_tibble()
-```
-
-
-.panelset[
-.panel[.panel-name[Q1]
-
-```{r eval=FALSE}
-# Q1.
-ps_data <- rio::import(here::here("data", "pragmatic_scales_data.csv")) %>% 
-  as_tibble()
-```
-
-]
-
-.panel[.panel-name[Q2]
-
-```{r eval=FALSE}
-# Q2.
-ps_data %>% 
-  filter(condition == "No Label") %>% 
-  arrange(desc(age))
-```
-
-]
-
-.panel[.panel-name[Q3]
-
-```{r eval=FALSE}
-# Q3.
-ps_data %>% 
-  filter(condition == "No Label" & age >= 3)
-```
-
-]
-
-.panel[.panel-name[Q4]
-
-.pull-left[
-```{r, eval=F}
-# Q4. 
-ps_filtered <- ps_data %>% 
-  filter(age >= 3 & age <= 4)
-
-ps_filtered
-```
-]
-
-.pull-right[
-```{r, eval=F}
-# Q4.
-ps_filtered <- ps_data %>% 
-  filter(between(age, 3, 4))
-
-ps_filtered
-```
-]
-]
-]
-
----
 class: inverse, center, middle
 
 # Manipulating variables <br> (columns)
@@ -548,18 +464,74 @@ Here are some commonly useful ones
 
 .footnote[`r emo::ji("link")` https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html#overview-of-selection-features]
 
+
 ---
-background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
-background-position: 90% 5%
-background-size: 10%
+class: inverse 
 
-# Concept Map: `select()`
+# Your turn `r (yt_counter <- yt_counter + 1)`
 
-```{r echo=FALSE, out.width="90%"}
-#knitr::include_graphics("images/select.png")
+```{r echo=FALSE}
+countdown(minutes = 5)
 ```
 
-.footnote[Source: [rstudio/concept-maps](https://github.com/rstudio/concept-maps)]
+1. Import the file [`DC_2020_Zoop.csv`](https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/data/DC_2020_Zoop.csv) (use best data practices!). Save it to an object called **`dc_zoop`**. 
+
+1. Filter rows to keep only data that has been QC'd (`QC==Y`) and `TotalVolume_ml` is less than 100 ml. Then arrange the resulting observations by descending order of `Site`. Save the result as a new object called **`dc_50`**.
+
+1. Select columns `Site`, `Date`, and `Volumnesubsampled_ml:Species`, and use `contains()` to pull any column that has "`Flow`" in the name.
+
+---
+class: solution
+
+# Solution
+
+
+.panelset[
+.panel[.panel-name[Q1]
+
+```{r eval=FALSE}
+# Q1.
+dc_zoop <- read_csv("https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/data/DC_2020_Zoop.csv")
+```
+
+]
+
+.panel[.panel-name[Q2]
+
+```{r eval=FALSE}
+# Q2.
+dc_f <- dc_zoop %>% 
+  filter(QC=="Y", TotalVolume_ml<100) %>% 
+  arrange(Site)
+```
+
+]
+
+.panel[.panel-name[Q3]
+
+.pull-left[
+
+```{r eval=FALSE}
+# Q3.
+dc_f <- dc_f %>% 
+  select(Site, Date, Volumesubsampled_ml:Species, LifeStage, abundance, contains("Flow"))
+```
+
+]
+
+.pull-right[
+
+```{r eval=FALSE}
+# Q3.
+dc_f <- dc_f %>% 
+  select(-c(Method:SplitFraction, `male/female`, Gravid_Y_N:X26), contains("Flow"))
+```
+
+]
+]
+]
+
+
 
 ---
 background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
@@ -646,13 +618,11 @@ class: inverse
 countdown(minutes = 4)
 ```
 
-1. In `ps_data`, select only the variables `age` and `condition`. 
+1. In `dc_zoop`, select only the variables `Site`, `Date`, `Family`, and `abundance`, call this **`dc_fam`**
 
-1. As we did with indexing in base R, you can use the minus sign (`-`) to "de-select" columns. Keep everything in `ps_data` except `subid` and `condition`. 
+1. Use the `{lubridate}` package function `mdy()` and `mutate()` to convert the Date column to a correct Date format, in a new column called **`date`**. Bonus, use `.after()` to put the **`date`** column immediately after the `Site` column. 
 
-1. Select the columns `correct` and `condition` without naming them, using their positions or de-selecting other variables.
-
-1. Use `mutate()` to convert `condition` from type "character" to type "factor". Then check that you've done this successfully. Hint: what function could you pipe to directly to check this? 
+1. How many unique sampling dates are there? How many `distinct` families are there?
 
 ---
 class: solution
@@ -663,8 +633,8 @@ class: solution
 .panel[.panel-name[Q1]
 
 ```{r eval=F}
-ps_data %>% 
-  select(age, condition)
+dc_fam <- dc_zoop %>% 
+  select(Site, Date, Family, abundance)
 ```
 
 
@@ -673,8 +643,9 @@ ps_data %>%
 .panel[.panel-name[Q2]
 
 ```{r, eval=F}
-ps_data %>% 
-  select(-c(subid, condition))
+library(lubridate)
+dc_fam <- dc_fam %>% 
+  mutate(date=mdy(Date), .after=Site)
 ```
 
 
@@ -683,19 +654,8 @@ ps_data %>%
 .panel[.panel-name[Q3]
 
 ```{r, eval=F}
-ps_data %>% 
-  select(starts_with("c"))
-```
-
-
-]
-
-.panel[.panel-name[Q4]
-
-```{r, eval=F}
-ps_data %>% 
-  mutate(condition = as.factor(condition)) %>% 
-  glimpse()
+dc_fam %>% distinct(Family) %>% count()
+dc_fam %>% distinct(date) %>% count()
 ```
 
 ]
@@ -826,129 +786,3 @@ penguins %>%
 
 ]
 
-
----
-background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
-background-position: 90% 5%
-background-size: 10%
-
-# Concept Map: `summarize()`
-
-```{r echo=FALSE, out.width="90%"}
-#knitr::include_graphics("images/group_by-summarize.png")
-```
-
-.footnote[Source: [rstudio/concept-maps](https://github.com/rstudio/concept-maps)]
-
-
----
-class: inverse
-
-# Your turn `r (yt_counter <- yt_counter + 1)`
-
-```{r echo=FALSE}
-countdown(minutes = 7)
-```
-
-1. From `ps_data`, get the total number of correct trials for each subject and call this variable `num_correct`. Hint: you can use the summary function `sum()`. 
-
-1. Now get the total number of correct trials (`num_trials`) for each unique combination of `condition` and `item` and arrange the resulting rows by descending order of `num_correct`. Which combination of condition and item had the most/least correct responses? 
-
-1. Lastly, calculate the proportion of correct responses for each `condition` and call this variable `prop_correct` (hint: because `correct` is coded as 0 and 1, you can do this by taking the mean of `correct`). In the same pipeline, create a bar plot that shows the differences between the mean proportion of correct responses between the two conditions, and color the bars by condition. What do you notice? (hint: it might be more straightforward to use `geom_col` than `geom_bar`)
-
-
----
-class: solution
-
-# Solution
-
-.panelset[
-.panel[.panel-name[Q1]
-
-```{r eval=F}
-# Q1. 
-ps_data %>% 
-  group_by(subid) %>% 
-  summarize(num_correct = sum(correct))
-```
-
-
-]
-
-.panel[.panel-name[Q2]
-
-```{r eval=F}
-# Q2. 
-ps_data %>% 
-  group_by(condition, item) %>% 
-  summarize(num_correct = sum(correct)) %>% 
-  arrange(desc(num_correct))
-```
-
-]
-
-.panel[.panel-name[Q3]
-
-```{r eval=FALSE}
-Q3. 
-ps_data %>% 
-  group_by(condition) %>% 
-  summarize(prop_correct = mean(correct)) %>% 
-  ggplot(aes(x = prop_correct, y = condition, fill = condition)) + 
-  geom_col() + 
-  coord_flip()
-```
-
-]
-
-.panel[.panel-name[Q3 Plot]
-
-```{r, eval=F, echo=FALSE, warning=FALSE, message=FALSE, fig.dim=c(4.8, 4.5)}
-ps_data %>% 
-  group_by(condition) %>% 
-  summarize(prop_correct = mean(correct)) %>% 
-  ggplot(aes(x = prop_correct, y = condition, fill = condition)) + 
-  geom_col() + 
-  coord_flip()
-```
-]
-
-]
-
----
-background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
-background-position: 90% 5%
-background-size: 10%
-
-# Column-wise operations
-
-What if we want to apply `dplyr` verbs across multiple columns **simultaneously**? Check out these slides for more `r emo::ji("point_down")`
-
-```{r echo=FALSE}
-knitr::include_url("https://columnwise-operations-dplyr.netlify.app/")
-```
-
-.footnote[`r emo::ji("link")` [columnwise-operations-dplyr.netlify.app](https://columnwise-operations-dplyr.netlify.app/#1)]
-
----
-class: inverse, center, middle
-# Q & A
-
-```{r echo=FALSE}
-countdown(minutes = 5)
-```
-
----
-class: inverse, center, middle
-# Next up...
-
-## Data tidying with `tidyr`
-
----
-class: inverse, center, middle
-# Break! 
-
-```{r echo=FALSE}
-countdown(minutes = 10)
-```
--->
