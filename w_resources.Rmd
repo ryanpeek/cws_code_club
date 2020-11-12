@@ -47,9 +47,9 @@ This page contains links to the data we're using in our workshop, and a sample o
 
 <br> 
 
-### Datasets We May Play With
+### Datasets We May Play With 
 
-Some useful datasets
+Some useful datasets:
 
 <br>
 
@@ -59,6 +59,18 @@ Some useful datasets
     - **Longitude-Latitude Data:** [`latlon.csv`](https://raw.githubusercontent.com/ucd-cws/CABW2020_R_training/main/data/latlon.csv)
     - **CSCI Data:** [`cscidat.csv`](https://raw.githubusercontent.com/ucd-cws/CABW2020_R_training/main/data/cscidat.csv)
     - **ASCI Data:** [`ascidat.csv`](https://raw.githubusercontent.com/ucd-cws/CABW2020_R_training/main/data/ascidat.csv)
+
+### Archived LiveCode
+
+This is the live code for each day
+
+<br>
+
+
+#### *`r icon::fa("code", color="forestgreen", size=1.5, pull="left")` LiveCode*
+
+ - [2020-10-22](https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/code/2020-10-22_livecode.R): Data tidying, import/export `xlsx` and `csv`
+ - [2020-11-05](): Iteration, datetime cleaning, intro to git & Github
 
 
 ## {-}

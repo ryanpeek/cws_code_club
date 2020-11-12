@@ -13,7 +13,6 @@
 
 <title>Resources</title>
 
-<script src="site_libs/header-attrs-2.4/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -23,6 +22,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="site_libs/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
 <link href="site_libs/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="site_libs_extra/academicons-1.8.0/css/academicons.css"/>
@@ -34,7 +35,7 @@
   div.column{display: inline-block; vertical-align: top; width: 50%;}
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
-      </style>
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -332,7 +333,7 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="https://www.dl.dropboxusercontent.com/s/2vxefqv5gkr6egt/r_live_code.R?dl=0">
-    <span class="fa fa-space-shuttle fa-1x"></span>
+    <span class="fa fa-code"></span>
      
     LiveCode
   </a>
@@ -369,7 +370,7 @@ $(document).ready(function () {
 <p><br></p>
 <p>This page contains links to the data we’re using in our workshop, and a sample of a few useful resources online and in print. This is by no means a comprehensive list, but hopefully a launching pad for useful website and books. All of these examples provide code you can try!</p>
 <div id="section" class="section level2 tabset tabset-fade tabset-pills">
-<h2 class="tabset tabset-fade tabset-pills"></h2>
+<h2></h2>
 <div id="resources" class="section level3">
 <h3>Resources</h3>
 <p><br></p>
@@ -407,7 +408,7 @@ $(document).ready(function () {
 </div>
 <div id="datasets-we-may-play-with" class="section level3">
 <h3>Datasets We May Play With</h3>
-<p>Some useful datasets</p>
+<p>Some useful datasets:</p>
 <p><br></p>
 <div class="section level4">
 <h4><em><i class="fas  fa-database fa-pull-left " style="color:slateblue;"></i> Lesson Datasets</em></h4>
@@ -421,9 +422,21 @@ $(document).ready(function () {
 </ul>
 </div>
 </div>
+<div id="archived-livecode" class="section level3">
+<h3>Archived LiveCode</h3>
+<p>This is the live code for each day</p>
+<p><br></p>
+<div class="section level4">
+<h4><em><i class="fas  fa-code fa-pull-left " style="color:forestgreen;"></i> LiveCode</em></h4>
+<ul>
+<li><a href="https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/code/2020-10-22_livecode.R">2020-10-22</a>: Data tidying, import/export <code>xlsx</code> and <code>csv</code></li>
+<li><a href="">2020-11-05</a>: Iteration, datetime cleaning, intro to git &amp; Github</li>
+</ul>
+</div>
+</div>
 </div>
 <div id="section-1" class="section level2 unnumbered">
-<h2 class="unnumbered"></h2>
+<h2></h2>
 <p><br></p>
 
 <div class="figure"><span id="fig:remoteLearning"></span>
@@ -459,7 +472,7 @@ Figure 1: <em>Artwork by <span class="citation">@allison_horst</span></em>
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
