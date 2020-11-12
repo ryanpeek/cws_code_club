@@ -34,6 +34,8 @@ knitr::include_url("slides/slides_data.html")
 
 ```
 
+<br>
+<br>
 
 ### `dplyr` Overview
 

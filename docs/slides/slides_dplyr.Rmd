@@ -1,0 +1,788 @@
+---
+title: "Data Wrangling with {dplyr}"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css]
+    seal: false
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(countdown)
+library(tidyverse)
+library(palmerpenguins)
+library(flair)
+
+xaringanExtra::use_xaringan_extra(include = c("panelset", "tile_view", "share_again", "editable"))
+# see here: https://pkg.garrickadenbuie.com/xaringanExtra/#/editable
+xaringanExtra::use_extra_styles(hover_code_line = TRUE, mute_unhighlighted_code = TRUE)
+#xaringanExtra::use_editable()
+
+# tidyr: https://d33wubrfki0l68.cloudfront.net/476fa4025501dcec05be08248b32d390dd2337d5/574c6/css/images/hex/tidyr.png
+# dplyr: https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png
+# tidyverse: https://www.tidyverse.org/images/hex-tidyverse.png
+
+# your turn counter
+yt_counter <- 0
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(base_color = "#23395b",
+                text_font_google = google_font("Montserrat", "300", "300i"),
+                code_font_google = google_font("Source Code Pro"),
+                link_color = "#BA8800",
+                code_inline_color = "#BA8800",
+                colors = c(
+                  blue = "#6495ed",
+                  red = "#f34213",
+                  purple = "#3e2f5b",
+                  orange = "#ff8811",
+                  green = "#136f63",
+                  white = "#FFFFFF"))
+```
+
+class: title-slide, center, middle
+
+# Data Wrangling with `dplyr`
+
+*modified from the [University of Oregon's Psych R Bootcamp](https://uopsych-r-bootcamp-2020.netlify.app/)*
+---
+
+## Tidying Data: What does this mean?
+
+
+.pull-left[
+### What makes **tidy** data?
+
+.can-edit.key-likes[
+- tidy data is...
+]
+]
+
+.pull-right[
+
+### Rank tools by reproducibility?
+
+.can-edit.key-dislikes[
+- ? > ? 
+]
+]
+
+
+---
+background-image: url(https://www.tidyverse.org/images/hex-tidyverse.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Tidyverse 
+
+General concepts:
+
+--
+
+1. Packages all have a similar system of language (**grammar**) for respective tasks. Because they share a common **grammar** we can tie pieces together to make complex statements about data, just like with language.
+
+--
+
+1. The first argument of (basically) every function is the **`data`**. This is very handy, especially when it comes to piping (`%>%`)
+
+--
+
+1. Variable names are usually not quoted (read more [here](https://tidyselect.r-lib.org/reference/language.html))
+
+
+---
+background-image: url("images/hex/palmerpenguins.png")
+background-position: 90% 5%
+background-size: 10%
+
+## Example with Palmer penguins
+
+ - 3 different species of penguin among 344 individuals
+ - Collected from 3 islands in Palmer Archipelago, Antarctica
+
+--
+
+```{r warning=FALSE, message=FALSE}
+library(palmerpenguins)
+glimpse(penguins)
+```
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# dplyr
+
+`dplyr` is a grammar of data manipulation, providing a consistent set of core verbs that help solve most data manipulation challenges
+
+```{r, echo=FALSE, out.width='70%', fig.cap="Artwork by @allison_horst", fig.align='center'}
+
+knitr::include_graphics("https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_wrangling.png")
+
+```
+
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# dplyr
+
+The basics: there are 5 key **verbs**:
+
+--
+***
+
+**Manipulating observations**
+
++ `filter()` picks cases based on their values.
+
++ `arrange()` changes the ordering of the rows.
+
+--
+***
+
+**Manipulating variables**
+
++ `select()` picks variables based on their names.
+
++ `mutate()` adds new variables that are functions of existing variables
+
+--
+***
+
+**Summarizing data**
+
++ `summarize()` reduces multiple values down to a single summary.
+
+
+---
+# Concept Map: `dplyr`
+
+```{r echo=FALSE, out.width="90%"}
+knitr::include_graphics(here::here("slides", "images", "dplyr_concept_map.svg"))
+```
+
+.footnote[Source: [rstudio/concept-maps](https://github.com/rstudio/concept-maps)]
+
+---
+background-image: url(https://magrittr.tidyverse.org/logo.png)
+background-position: 90% 5%
+background-size: 10%
+
+# A review of pipes
+
+[Pipes](https://magrittr.tidyverse.org/reference/pipe.html) allow us to pass one thing (data, function, whatever) to the next so we don't have to rewrite that same thing...typically this is used with data. 
+
+For example if `x=data`, and `f(data, do)` is a function to do something:
+
+`x %>% f(y)` is equivalent to `f(data=x, do=y)`
+
+--
+***
+
+R Code 
+
+```{r eval=FALSE}
+penguins %>% 
+  filter(species == "Gentoo") %>% 
+  select(bill_length_mm, bill_depth_mm) %>% 
+  arrange(desc(bill_length_mm))
+```
+
+--
+
+Translated into English
+
+```{r eval = FALSE}
+start with penguins data *AND THEN*
+  filter to include only observations from Gentoo penguins *AND THEN*
+  select only the columns `bill_length_mm` and `bill_depth_mm` *AND THEN*
+  arrange observations by descending order of `bill_length_mm`
+```
+
+---
+class: inverse, center, middle
+
+# Manipulating observations <br> (rows)
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `filter()`
+
+### Subset observations (rows) with `filter()`
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `filter()`
+
+```{r echo=FALSE, fig.cap="Artwork by @allison_horst", fig.align='center'}
+knitr::include_graphics("https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_filter.jpg")
+```
+
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `filter()`
+
+### Comparisons
+
+```{r include = FALSE}
+comp_table <- tibble::tribble(
+  ~Operator, ~Description, ~Usage,
+  "<", "less than", "x < y",
+  "<=", "less than or equal to", "x <= y",
+  ">", "greater than", "x > y",
+  ">=", "greater than or equal to", "x >= y",
+  "==", "exactly equal to", "x == y",
+  "!=", "not equal to", "x != y",
+  "%in%", "group membership", "x %in% y",
+  "is.na", "is missing", "is.na(x)",
+  "!is.na", "is not missing", "!is.na(x)"
+)
+```
+
+
+```{r echo = FALSE, results = 'asis'}
+knitr::kable(comp_table, format = "html")
+```
+
+.footnote[Source: [Alison Hill](https://share-blogdown.netlify.app/slides/02-slides.html#15)]
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `filter()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+```{r filter-spec-color-coded, echo = FALSE, warning=FALSE}
+decorate('filter(.data, ...)', eval=FALSE) %>% 
+  flair(".data", color = "cornflowerblue") %>% 
+  flair("...", color = "red")
+```
+
+**.blue[.data]** .blue[= a data frame or tibble]
+
+**.red[. . .]**  .red[= Expressions that return a logical value, and are defined in terms of the variables in .blue[.data]. <br><br> If multiple expressions are included, they are combined with the & operator. Only rows for which all conditions evaluate to TRUE are kept. ]
+]
+
+.panel[.panel-name[Example 1]
+
+```{r}
+penguins %>% 
+  filter(species == "Gentoo" & bill_length_mm > 55)
+```
+
+]
+
+.panel[.panel-name[Example 2]
+
+```{r}
+penguins %>% 
+  filter(species %in% c("Adelie", "Gentoo"),
+         island %in% c("Dream", "Torgersen"))
+```
+]
+]
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `arrange()`
+
+### Arrange rows by column values with `arrange()`
+
+```{r echo=FALSE}
+#knitr::include_graphics("images/dplyr/arrange.png")
+```
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `arrange()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+```{r arrange-spec-color-coded, echo = FALSE, warning=FALSE}
+decorate('arrange(.data, ...)', eval=FALSE) %>% 
+  flair(".data", color = "cornflowerblue") %>% 
+  flair("...", color = "red")
+```
+
+**.blue[.data]** .blue[= a data frame or tibble]
+
+**.red[. . .]**  .red[= Variables to sort by. Use `desc()` to sort a variable in descending order.]
+]
+
+.panel[.panel-name[Example 1]
+
+```{r}
+penguins %>% 
+  filter(species == "Gentoo" & bill_length_mm > 55) %>% 
+  arrange(body_mass_g)
+```
+
+]
+
+.panel[.panel-name[Example 2]
+
+```{r}
+penguins %>% 
+  filter(species == "Gentoo" & bill_length_mm > 55) %>% 
+  arrange(desc(body_mass_g))
+```
+]
+]
+
+---
+class: inverse, center, middle
+
+# Manipulating variables <br> (columns)
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `select()`
+
+### Select columns with `select()`
+
+```{r echo=FALSE}
+#knitr::include_graphics("images/dplyr/select.png")
+```
+
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `select()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+```{r select-spec-color-coded, echo = FALSE, warning=FALSE}
+decorate('select(.data, ...)', eval=FALSE) %>% 
+  flair(".data", color = "cornflowerblue") %>% 
+  flair("...", color = "red")
+```
+
+**.blue[.data]** .blue[= a data frame or tibble]
+
+**.red[. . .]**  .red[= One or more unquoted expressions separated by commas. <br><br> Variable names can be used as if they were positions in the data frame, so expressions like `x:y` can be used to select a range of variables.]
+]
+
+.panel[.panel-name[Example 1]
+
+```{r}
+penguins %>% 
+  filter(species == "Gentoo" & bill_length_mm > 55) %>% 
+  arrange(body_mass_g) %>% 
+  select(species:bill_depth_mm)
+```
+
+]
+
+.panel[.panel-name[Example 2]
+
+```{r}
+penguins %>% 
+  filter(species == "Gentoo" & bill_length_mm > 55) %>% 
+  arrange(body_mass_g) %>% 
+  select(species, starts_with("bill_"))
+```
+]
+
+.panel[.panel-name[Example 3]
+
+```{r}
+penguins %>% 
+  filter(species == "Gentoo" & bill_length_mm > 55) %>% 
+  arrange(body_mass_g) %>% 
+  select(ends_with("_mm"))
+```
+]
+
+]
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# Selection helpers
+
+Selection helpers work in concert with `select()` to make it easier to select specific groups of variables.
+
+--
+
+Here are some commonly useful ones
+
+***
+
+`everything()`: Matches all variables.
+
+`last_col()`: Select last variable, possibly with an offset.
+
+`starts_with()`: Starts with a prefix.
+
+`ends_with()`: Ends with a suffix.
+
+`contains()`: Contains a literal string.
+
+.footnote[`r emo::ji("link")` https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html#overview-of-selection-features]
+
+
+---
+class: inverse 
+
+# Your turn `r (yt_counter <- yt_counter + 1)`
+
+```{r echo=FALSE}
+countdown(minutes = 5)
+```
+
+1. Import the file [`DC_2020_Zoop.csv`](https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/data/DC_2020_Zoop.csv) (use best data practices!). Save it to an object called **`dc_zoop`**. 
+
+1. Filter rows to keep only data that has been QC'd (`QC==Y`) and `TotalVolume_ml` is less than 100 ml. Then arrange the resulting observations by descending order of `Site`. Save the result as a new object called **`dc_50`**.
+
+1. Select columns `Site`, `Date`, and `Volumnesubsampled_ml:Species`, and use `contains()` to pull any column that has "`Flow`" in the name.
+
+---
+class: solution
+
+# Solution
+
+
+.panelset[
+.panel[.panel-name[Q1]
+
+```{r eval=FALSE}
+# Q1.
+dc_zoop <- read_csv("https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/data/DC_2020_Zoop.csv")
+```
+
+]
+
+.panel[.panel-name[Q2]
+
+```{r eval=FALSE}
+# Q2.
+dc_f <- dc_zoop %>% 
+  filter(QC=="Y", TotalVolume_ml<100) %>% 
+  arrange(Site)
+```
+
+]
+
+.panel[.panel-name[Q3]
+
+.pull-left[
+
+```{r eval=FALSE}
+# Q3.
+dc_f <- dc_f %>% 
+  select(Site, Date, Volumesubsampled_ml:Species, LifeStage, abundance, contains("Flow"))
+```
+
+]
+
+.pull-right[
+
+```{r eval=FALSE}
+# Q3.
+dc_f <- dc_f %>% 
+  select(-c(Method:SplitFraction, `male/female`, Gravid_Y_N:X26), contains("Flow"))
+```
+
+]
+]
+]
+
+
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `mutate()`
+
+### Create (or overwrite) variables with `mutate()`
+
+```{r echo=FALSE}
+#knitr::include_graphics("images/dplyr/mutate.png")
+```
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `mutate()`
+
+.center[
+```{r echo=FALSE, out.width="75%"}
+#knitr::include_graphics("images/dplyr_mutate.png")
+```
+]
+
+.footnote[Artwork by [@allison_horst](https://twitter.com/allison_horst)]
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `mutate()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+```{r mutate-spec-color-coded, echo = FALSE, warning=FALSE}
+decorate('mutate(.data, ...)', eval=FALSE) %>% 
+  flair(".data", color = "cornflowerblue") %>% 
+  flair("...", color = "red")
+```
+
+**.blue[.data]** .blue[= a data frame or tibble]
+
+**.red[. . .]**  .red[=  Name-value pairs. The name gives the name of the column in the output.]
+
+]
+
+.panel[.panel-name[Example 1]
+
+```{r}
+penguins %>% 
+  filter(species == "Gentoo" & bill_length_mm > 55) %>% 
+  arrange(body_mass_g) %>% 
+  select(starts_with("bill_")) %>% 
+  mutate(bill_length_m = bill_length_mm/1000)
+```
+
+]
+
+.panel[.panel-name[Example 2]
+
+```{r}
+penguins %>% 
+  filter(species == "Gentoo" & bill_length_mm > 55) %>% 
+  arrange(body_mass_g) %>% 
+  select(starts_with("bill_")) %>% 
+  mutate(bill_length_mm = as.character(bill_length_mm))
+```
+]
+
+]
+
+---
+class: inverse
+
+# Your turn `r (yt_counter <- yt_counter + 1)`
+
+```{r echo=FALSE}
+countdown(minutes = 4)
+```
+
+1. In `dc_zoop`, select only the variables `Site`, `Date`, `Family`, and `abundance`, call this **`dc_fam`**
+
+1. Use the `{lubridate}` package function `mdy()` and `mutate()` to convert the Date column to a correct Date format, in a new column called **`date`**. Bonus, use `.after()` to put the **`date`** column immediately after the `Site` column. 
+
+1. How many unique sampling dates are there? How many `distinct` families are there?
+
+---
+class: solution
+
+# Solution
+
+.panelset[
+.panel[.panel-name[Q1]
+
+```{r eval=F}
+dc_fam <- dc_zoop %>% 
+  select(Site, Date, Family, abundance)
+```
+
+
+]
+
+.panel[.panel-name[Q2]
+
+```{r, eval=F}
+library(lubridate)
+dc_fam <- dc_fam %>% 
+  mutate(date=mdy(Date), .after=Site)
+```
+
+
+]
+
+.panel[.panel-name[Q3]
+
+```{r, eval=F}
+dc_fam %>% distinct(Family) %>% count()
+dc_fam %>% distinct(date) %>% count()
+```
+
+]
+]
+
+---
+class: inverse, center, middle
+
+# Summarizing data
+
+---
+background-image: url(images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `summarize()`
+
+`summarize()` reduces your raw data frame into to a smaller summary data frame that only contains the variables resulting from the **summary functions** that you specify within `summarize()`
+
+```{r echo=FALSE, out.width="40%"}
+#knitr::include_graphics("images/dplyr/summarize.png")
+```
+
+--
+***
+
+Summary functions take vectors as inputs and return single values as outputs
+
+```{r echo=FALSE}
+#knitr::include_graphics("images/dplyr/summary_function.png")
+```
+
+Common examples are `mean()`, `sd()`, `max()`, `min()`, `sum()`, etc...
+
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `summarize()`
+
+.panelset[
+
+.panel[.panel-name[Arguments]
+
+```{r summarize-spec-color-coded, echo = FALSE, warning=FALSE}
+decorate('summarize(.data, ...)', eval=FALSE) %>% 
+  flair(".data", color = "cornflowerblue") %>% 
+  flair("...", color = "red")
+```
+
+**.blue[.data]** .blue[= a data frame or tibble]
+
+**.red[. . .]**  .red[=  Name-value pairs of summary functions. The name will be the name of the variable in the result.]
+
+]
+
+.panel[.panel-name[Example]
+
+```{r}
+penguins %>% 
+  summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE),
+            max_flipper_length = max(flipper_length_mm, na.rm = TRUE))
+```
+
+]
+
+]
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `group_by()`
+
+`group_by()` creates groups based on one or more variables in the data, and this affects any downstream operations -- most commonly, `summarize()`
+
+```{r echo=FALSE, out.width="50%"}
+#knitr::include_graphics("images/dplyr/group_by.png")
+```
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `group_by()`
+
+What happens if we combine `group_by()` and `summarize()`? 
+
+```{r echo=FALSE, out.width="75%"}
+#knitr::include_graphics("images/dplyr/group_by_summarize.png")
+```
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+# `summarize()`
+
+Let's see a couple examples of how we can combine `group_by()` and `summarize()`
+
+.panelset[
+
+.panel[.panel-name[Example 1]
+
+```{r}
+penguins %>% 
+  group_by(species) %>% 
+  summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE))
+```
+
+]
+
+.panel[.panel-name[Example 2]
+
+```{r}
+penguins %>% 
+  group_by(species, island) %>% 
+  summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE))
+```
+
+]
+
+
+]
+
