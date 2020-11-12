@@ -70,7 +70,7 @@ This is the live code for each day
 #### *`r icon::fa("code", color="forestgreen", size=1.5, pull="left")` LiveCode*
 
  - [2020-10-22](https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/code/2020-10-22_livecode.R): Data tidying, import/export `xlsx` and `csv`
- - [2020-11-05](): Iteration, datetime cleaning, intro to git & Github
+ - [2020-11-05](https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/code/2020-11-05_livecode.R): Iteration, datetime cleaning, intro to git & Github
 
 
 ## {-}

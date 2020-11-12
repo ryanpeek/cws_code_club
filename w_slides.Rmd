@@ -33,3 +33,12 @@ Slide presentations from deBugging Buddies can be found below!
 knitr::include_url("slides/slides_data.html")
 
 ```
+
+
+### `dplyr` Overview
+
+```{r, echo=F, out.width='100%'}
+
+knitr::include_url("slides/slides_dplyr.html")
+
+```
