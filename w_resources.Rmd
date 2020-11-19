@@ -55,10 +55,11 @@ Some useful datasets:
 
 #### *`r icon::fa("database", color="slateblue", size=1.5, pull="left")` Lesson Datasets*
 
- - [Full Dataset as a zipped folder](https://github.com/ucd-cws/CABW2020_R_training/raw/main/data/datazip.zip). Inside you'll find these files:
+ - [Bioassessment Data Zipped](https://github.com/ucd-cws/CABW2020_R_training/raw/main/data/datazip.zip). Inside you'll find these files:
     - **Longitude-Latitude Data:** [`latlon.csv`](https://raw.githubusercontent.com/ucd-cws/CABW2020_R_training/main/data/latlon.csv)
     - **CSCI Data:** [`cscidat.csv`](https://raw.githubusercontent.com/ucd-cws/CABW2020_R_training/main/data/cscidat.csv)
     - **ASCI Data:** [`ascidat.csv`](https://raw.githubusercontent.com/ucd-cws/CABW2020_R_training/main/data/ascidat.csv)
+  - [USDA Turkey Data](https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/data/annual_turkey_data_by_state_USDA_1929-2020.csv) from the NASS USDA (https://quickstats.nass.usda.gov).
 
 ### Archived LiveCode
 
