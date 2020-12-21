@@ -1,5 +1,10 @@
 # 2020-12-17 DeBugging Buddies --------------------------------------------
 
+
+## HIDDEN FUN TIP!! Add YuleTide Theme to your Rstudio:
+#devtools::install_github("gadenbuie/rsthemes")
+#rstudioapi::addTheme("https://raw.githubusercontent.com/gadenbuie/yule-rstudio/master/Yule-RStudio.rstheme", apply=TRUE)
+
 # making maps with tmap and ggplot2
 
 # first load libraries
