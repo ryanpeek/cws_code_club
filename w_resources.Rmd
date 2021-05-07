@@ -77,6 +77,7 @@ This is the live code for each day
  - [2020-12-17](https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/code/2020-12-17_livecode.R): Making static maps with {tmap} and {ggplot2}
  - [2021-01-14](https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/code/2021-01-14_livecode.R): Learning more about basics of a {ggplot2} and some themes
  - [2021-01-28](https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/code/2021-01-28_livecode.R): Short date/datetimes/timezones tutorial
+  - [2021-05-06](https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/code/2021-05-06_livecode.R): Building your own functions tutorial
 
 
 ## {-}
