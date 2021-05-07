@@ -19,7 +19,7 @@ This page contains links to the data we're using in our workshop, and a sample o
 
 <br>
 
-#### *`r icon::fa("r-project", color="steelblue", size=1.5, pull="left")` Lessons & Tutorials*
+#### *`r icons::icon_style(icons::fontawesome("r-project"),  color="steelblue", size=1.5, pull="left")` Lessons & Tutorials*
 
 * [Software Carpentry: **R for Reproducible Scientific Analysis**](http://data-lessons.github.io/gapminder-R/)
 * [Data Carpentry: **R for Data Analysis and Visualization of Ecological Data**](http://www.datacarpentry.org/R-ecology-lesson/)
@@ -30,7 +30,7 @@ This page contains links to the data we're using in our workshop, and a sample o
 
 <br>
 
-#### *`r icon::fa("book", color="black", size=1.5, pull="left")` eBooks/Courses*
+#### *`r icons::icon_style(icons::fontawesome("book"), color="black", size=1.5, pull="left")` eBooks/Courses*
 
 * [Jenny Bryan's **Stat545.com**](http://stat545.com/)
 * [Garrett Grolemund and Hadley Wickham's **R For Data Science**](http://r4ds.had.co.nz/)
@@ -40,7 +40,7 @@ This page contains links to the data we're using in our workshop, and a sample o
 
 <br>
 
-#### *`r icon::fa("github", color="gray50", size=1.5, pull="left")` Git/Github* 
+#### *`r icons::icon_style(icons::fontawesome("github"), color="gray50", size=1.5, pull="left")` Git/Github* 
 
 * [Jenny Bryan's **Happy Git and Github for the useR**](http://happygitwithr.com/)
 * [Coding Club **Intro to Github**](https://ourcodingclub.github.io/2017/02/27/git.html)
@@ -53,7 +53,7 @@ Some useful datasets:
 
 <br>
 
-#### *`r icon::fa("database", color="slateblue", size=1.5, pull="left")` Lesson Datasets*
+#### *`r icons::icon_style(icons::fontawesome("database"), color="slateblue", size=1.5, pull="left")` Lesson Datasets*
 
  - [Bioassessment Data Zipped](https://github.com/ucd-cws/CABW2020_R_training/raw/main/data/datazip.zip). Inside you'll find these files:
     - **Longitude-Latitude Data:** [`latlon.csv`](https://raw.githubusercontent.com/ucd-cws/CABW2020_R_training/main/data/latlon.csv)
@@ -68,7 +68,7 @@ This is the live code for each day
 <br>
 
 
-#### *`r icon::fa("code", color="forestgreen", size=1.5, pull="left")` LiveCode*
+#### *`r icons::icon_style(icons::fontawesome("code"), color="forestgreen", size=1.5, pull="left")` LiveCode*
 
  - [2020-10-22](https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/code/2020-10-22_livecode.R): Data tidying, import/export `xlsx` and `csv`
  - [2020-11-05](https://raw.githubusercontent.com/ryanpeek/cws_code_club/main/code/2020-11-05_livecode.R): Iteration, datetime cleaning, intro to git & Github
