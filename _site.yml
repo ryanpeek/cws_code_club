@@ -27,7 +27,7 @@ navbar:
     menu:
     - text: "Getting Started"
       icon: fa-map-signs
-      href: w_setup_R.html
+      href: w_setup_temp_R.html
     - text: "Setting up RStudio Cloud"
       icon: fa-cloud
       href: w_RStudio_cloud.html
